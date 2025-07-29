@@ -16,6 +16,7 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
+    
 
     //Add Item to cart or increase the quantity of an Existing item
     const addToCart = (item, quantity = 1) => {

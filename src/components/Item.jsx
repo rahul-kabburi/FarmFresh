@@ -134,11 +134,11 @@ const Item = () => {
         if(allExpanded){
             setExpandedCategories({})
         }else{
-            const expanded = {};
-            groceryData.forEach(category => {
-                expanded[category.id] == true
+            const expanded = {}; // I will make a new list of objects and mark them all open so when clicked it toggles
+            groceryData.forEach(category => {   //we start with an empty object and fill it using .forEach()
+                expanded[category.id] = true  //[] because we want to name the box with its real ID (like fruits or vegetables), not just write category.id (means open the box with this id)
             })
-            setExpandedCategories(expanded)
+            setExpandedCategories(expanded) //(flips value, ( if true then false and vice versa))
         }
         setAllExpanded(!allExpanded)
     }
@@ -162,14 +162,14 @@ const Item = () => {
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         if(searchTrem.trim()){
-                            navigate(`/items?search=${encodeURIComponent(searchTrem)}`)
+                            navigate(`/items?search=${encodeURIComponent(searchTrem)}`) //encodeURIComponent is used to encode the search term so it can be used in the URL(gets the search term and puts it in the URL)
                         }
                     }} className={itemsPageStyles.searchForm}>
                         <input type="text" value={searchTrem} onChange={(e) => setSearchTerm(e.target.value)} placeholder='Search for fruits, vegetables...'className={itemsPageStyles.searchInput} />
                         <button type='submit' className={itemsPageStyles.searchButton}><FiSearch className=' h-5 w-5'/></button>
                     </form>
                 </div>
-                
+                {/**Expand / Collapse All Button */}
                 <div className=' flex justify-center mb-10'>
                     <button onClick={toggleAllCategories} className={itemsPageStyles.expandButton}>
                         <span className=' mr-2 font-medium'>
@@ -178,6 +178,7 @@ const Item = () => {
                         {allExpanded ? <FiMinus/> : <FiPlus/>}
                     </button>
                 </div>
+                {/**Category Mapping */}
                 {filteredData.length > 0 ?(
                     filteredData.map(category => {
                         const isExpanded = expandedCategories[category.id] || allExpanded
@@ -191,11 +192,13 @@ const Item = () => {
                                     <h2 className={itemsPageStyles.categoryTitle}>{category.name}</h2>
                                     <div className={itemsPageStyles.categoryDivider}></div>
                                 </div>
+                                {/** ProductCard Rendering */}
                                 <div className={itemsPageStyles.productsGrid}>
                                     {visibleItems.map(item => (
                                         <ProductCard key = {item.id} item={item} />
                                     ))}
                                 </div>
+                                {/**Show More / Show Less */}
                                 {hasMoreItems && (
                                     <div className=' mt-8 flex justify-center'>
                                         <button onClick={() => toggleCategory(category.id)} className={itemsPageStyles.showMoreButton}>
@@ -210,7 +213,7 @@ const Item = () => {
                         )
                     })
                 ) : (
-                    <div className={itemsPageStyles.noProductsContainer}>
+                        <div className={itemsPageStyles.noProductsContainer}> {/** No products found */}
                         <div className={itemsPageStyles.noProductsCard}>
                             <div className={itemsPageStyles.noProductsIcon}>
                                 <FiSearch className=' mx-auto h-16 w-16'/>
