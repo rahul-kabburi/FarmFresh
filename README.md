@@ -1,12 +1,54 @@
-# React + Vite
+# 🥬 FarmFresh
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FarmFresh** is a modern and minimalistic frontend web application built using **React** and **Tailwind CSS**, designed to display fresh farm produce with a seamless shopping experience. It features dynamic category-based filtering, user authentication, localStorage cart management, and protected routing.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [https://farm-fresh-d24c.vercel.app](https://farm-fresh-d24c.vercel.app)  
+📦 **GitHub Repo**: [https://github.com/rahul-kabburi/farmFresh](https://github.com/rahul-kabburi/farmFresh)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🏠 **Home Page**
+  - Displays all available items.
+  - Includes a sidebar with categories (e.g., Fruits, Vegetables).
+  - Clicking a category filters and displays only relevant items.
+  - Users can add items to the cart and increase quantity.
+  - Cart item count is shown on the cart icon in real-time.
+
+- 🛒 **Cart Page**
+  - View and manage items in the cart.
+  - Quantity-based pricing and total updates dynamically.
+  - **Protected Route**: redirects to login if user not authenticated.
+
+- 🔐 **Authentication**
+  - LocalStorage-based login and signup system.
+  - Toggle button for login/logout visibility.
+
+- 📩 **Contact Page**
+  - Contact form that redirects users to WhatsApp with the message.
+
+- 💾 **Persistent Cart**
+  - Cart and authentication info stored in localStorage.
+
+---
+
+## 🧪 Tech Stack
+
+- ⚛️ React
+- 💨 Tailwind CSS
+- 🌐 React Router DOM
+- 💾 Local Storage
+- ⚡ Vite (Build Tool)
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository and run it locally:
+
+```bash
+git clone https://github.com/rahul-kabburi/farmFresh.git
+cd farmFresh
+npm install
+npm run dev
